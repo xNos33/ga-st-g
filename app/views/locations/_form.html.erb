@@ -1,7 +1,12 @@
-<%= simple_form_for(@location) do |f| %>
+<%= simple_form_for@location, html: {multipart: true} do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, label: 'add image' %>
+    <%= f.label :or_image_url %><br>
+    <%= f.text_field :image_url %>
+
     <%= f.input :title %>
     <%= f.input :body %>
     <%= f.input :address %>
