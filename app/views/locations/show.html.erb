@@ -1,44 +1,82 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-9">
 
-<p>
-  <strong>Image:</strong>
-   <!--image_tag @location.image_url(:thumb).to_s -->
-  <%= image_tag @location.image_url.to_s %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @location.title %>
-</p>
+    <div class="post_wrapper">
+        <h1 style="font-family: 'Poiret One', cursive; color: black;">
 
-<p>
-  <strong>Body:</strong>
-  <%= @location.body %>
-</p>
+          <%= @location.title %>  
+        </h1>
+    </div>
+    <br>
+    <div class="row">
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
+      <div class="col-xs-8 col-sm-6">
+        <div class="post_wrapper">
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @location.latitude %>
-</p>
+            <!--image_tag @location.image_url(:thumb).to_s -->
+            <!--image_tag @location.image_url.to_s -->
+            <%= link_to (image_tag @location.image_url(:thumb)) %>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @location.longitude %>
-</p>
+            <p style="font-family: 'Playball', cursive; color: black; font-size: 25px;">
+              <%= @location.body %>
+            </p>
 
-<%= image_tag("http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" ) %>
+          <p><%= link_to 'Edit', edit_location_path(@location) %></p>
+          <p><%= link_to 'Delete', location_path(@location), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+
+        
+        
+      </div>
+
+      <div class="col-xs-4 col-sm-6">
+
+        <div class="post_wrapper">
+
+            <%= image_tag("http://maps.google.com/maps/api/staticmap?size=550x400&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" ) %>
+              
+          
+              <ul style="font-family: 'Poiret One', cursive; color: green;">
+               <li><%= @location.address %></li>
+               <li><%= @location.latitude %></li>
+               <li><%= @location.longitude %></li>
+              </ul>
 
 
-<h1>Nearbys Locations</h1>
-<ul>
-<% for location in @location.nearbys(20) %>
-   <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
-<% end %>
-</ul>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <div class="post_wrapper">
+     
+       <h1 style="font-family: 'Poiret One', cursive; color: black;">
+         Nearbys Locations
+       </h1>
+
+        <ul>
+        <% for location in @location.nearbys(20) %>
+        <ul>
+           <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+        </ul>
+        <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

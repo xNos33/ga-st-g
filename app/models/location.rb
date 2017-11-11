@@ -1,6 +1,7 @@
 class Location < ApplicationRecord
 	#attr_accessible :address, :latitude, :longitude
 	#attr_accessor :address, :latitude, :longitude
+	belongs_to :user
 
 	mount_uploader :image, ImageUploader
 

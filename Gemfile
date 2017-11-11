@@ -38,6 +38,7 @@ gem 'geocoder', '~> 1.4', '>= 1.4.4'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'rmagick', '~> 2.16'
+gem 'mini_magick', '~> 4.8'
 #styling
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'simple_form', '~> 3.5'

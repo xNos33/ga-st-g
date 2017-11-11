@@ -18,7 +18,8 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    #@location = Location.new
+    @location = current_user.locations.build
   end
 
   # GET /locations/1/edit
@@ -28,7 +29,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = current_user.locations.build(location_params)
 
     respond_to do |format|
       if @location.save
@@ -73,6 +74,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:image, :image_url, :title, :body, :address, :latitude, :longitude)
+      params.require(:location).permit(:image, :title, :body, :address, :latitude, :longitude)
     end
 end
