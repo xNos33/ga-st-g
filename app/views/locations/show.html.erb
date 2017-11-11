@@ -2,10 +2,7 @@
   <div class="col-sm-9">
 
     <div class="post_wrapper">
-        <h1 style="font-family: 'Poiret One', cursive; color: black;">
-
-          <%= @location.title %>  
-        </h1>
+        ....
     </div>
     <br>
     <div class="row">
@@ -16,8 +13,12 @@
             <!--image_tag @location.image_url(:thumb).to_s -->
             <!--image_tag @location.image_url.to_s -->
             <%= link_to (image_tag @location.image_url(:thumb)) %>
+            
+            <h1 style="font-family: 'Poiret One', cursive; color: black;">
 
-            <p style="font-family: 'Playball', cursive; color: black; font-size: 25px;">
+               <%= @location.title %>  
+            </h1>
+            <p style="font-family: 'Poiret One', cursive; color: black;; color: black; font-size: 25px;">
               <%= @location.body %>
             </p>
 
