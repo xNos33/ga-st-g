@@ -6,12 +6,12 @@
   </div>
   <div class="col-xs-6 col-md-4">
 
-     <h1>Locations</h1>
+     <h1 style="font-family: 'Spectral SC', serif;">Locations</h1>
 
     <%= form_tag locations_path, :method => :get do %>
       <p>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search Near", :name => nil %>
+        <p style="font-family: 'Spectral SC', serif;"><%= submit_tag "Search Near", :name => nil %></p>
       </p>
     <% end %>
 

@@ -7,4 +7,8 @@ class Location < ApplicationRecord
 
 	geocoded_by :address
 	after_validation :geocode, :if => :address_changed?
+    
+    validates :body, presence: true
+	validates :title, presence: true, length: { minimum: 1 }
+	validates :body, presence: true
 end
